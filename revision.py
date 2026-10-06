@@ -1,24 +1,28 @@
-student_name = "Jonathan"
-date = "01.01.2020"
-duration_hrs = 2.5
-fee = 50
-online_inperson = "online"
-paid = True
+students = ["Ae", "Boon", "Cee"]
+durations = [1.0, 1.5, 2.0]
+fees = [400, 300, 600]
+paid_status = [True, True, False]
 
-rate_per_hour = fee / duration_hrs
-print(rate_per_hour)
+data = [students,durations,paid_status]
+total_income = 0 
+unpaid_count = 0
 
-student_name_2 = "Jonathan"
-date_2 = "01.01.2020"
-duration_hrs_2 = 2.5
-fee_2 = 50
-online_inperson_2 = "online"
-paid_2 = True
+for i in range(len(students)):
 
-total_income = fee + fee_2
-total_hours = duration_hrs + duration_hrs_2
+        for attr in data:
+              print(attr[i])
+        
+        rate_per_hour = fees[i] / durations[i]
+        print("Rate per hour:", rate_per_hour)
+
+        if rate_per_hour < 300:
+               print("Below standard rate!")
+
+        if paid_status[i]:
+              total_income += fees[i]
+        else:
+               unpaid_count += 1
+               
 
 print("Total Income: ", total_income)
-print("Total Income Type: ",type(total_income))
-print("Total Income is an integer because multiplying 2 integers together outputs and integer")
-print("Total Hours: ", total_hours)
+print("Total Unpaid lessons: ", unpaid_count)    
