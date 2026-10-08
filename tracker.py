@@ -55,3 +55,19 @@ for i in range(len(fees)):
 
 print("Total Income Received: ", paid_total)
 print("Number of unpaid lesson: ", unpaid)
+
+unique_students = []
+for student in students:
+    if student not in unique_students:
+        unique_students.append(student)
+
+students_index = range(len(students))
+student_total = 0 
+
+for unique_student in unique_students:
+    for i in students_index:
+        if unique_student == students[i] and paid_status[i]:
+            student_total += fees[i]
+    print(f"The total fee collected for {unique_student} is {student_total} THB")
+    student_total = 0 
+
